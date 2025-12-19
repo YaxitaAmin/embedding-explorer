@@ -37,39 +37,39 @@
             position: absolute;
             bottom: 32px;
             left: 32px;
-            max-width: 380px;
+            max-width: 340px;
             z-index: 100;
             pointer-events: none;
         }
         .info-title {
             font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 32px;
+            font-size: 28px;
             line-height: 1.1;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .info-description {
-            font-size: 12px;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 20px;
+            font-size: 11px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
         }
-        .stats { display: flex; gap: 32px; }
+        .stats { display: flex; gap: 24px; }
         .stat-value {
             font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 24px;
+            font-size: 20px;
             color: #6366f1;
         }
         .stat-label {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: rgba(255, 255, 255, 0.4);
-            margin-top: 4px;
+            margin-top: 2px;
         }
         
         .search-container {
@@ -80,134 +80,163 @@
             z-index: 100;
         }
         .search-box {
-            width: 280px;
-            padding: 12px 18px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 260px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
             font-family: 'Space Mono', monospace;
-            font-size: 13px;
+            font-size: 12px;
             outline: none;
             transition: all 0.3s ease;
         }
         .search-box::placeholder { color: rgba(255, 255, 255, 0.3); }
         .search-box:focus {
             border-color: #6366f1;
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
         }
         .search-results {
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
-            margin-top: 8px;
-            background: rgba(10, 10, 15, 0.95);
+            margin-top: 6px;
+            background: rgba(10, 10, 15, 0.98);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             display: none;
         }
         .search-results.active { display: block; }
         .search-result {
-            padding: 10px 18px;
+            padding: 10px 16px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 12px;
         }
         .search-result:hover { background: rgba(99, 102, 241, 0.2); }
         
         .legend {
             position: absolute;
-            bottom: 32px;
-            right: 32px;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 4px;
             z-index: 100;
         }
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
+            gap: 8px;
+            padding: 6px 10px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s;
+            border: 1px solid transparent;
         }
-        .legend-item:hover { background: rgba(255, 255, 255, 0.08); }
-        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .legend-item:hover { 
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .legend-item.active { border-color: currentColor; }
+        .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
         .legend-label {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: rgba(255, 255, 255, 0.7);
         }
         
-        .instructions {
+        .controls {
             position: absolute;
-            bottom: 32px;
+            bottom: 24px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 20px;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
+            gap: 8px;
             z-index: 100;
         }
-        .instruction {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .control-btn {
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Space Mono', monospace;
             font-size: 10px;
-            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .instruction-key {
+        .control-btn:hover {
+            background: rgba(99, 102, 241, 0.3);
+            border-color: #6366f1;
+        }
+        .control-btn.active {
+            background: #6366f1;
+            border-color: #6366f1;
+            color: #fff;
+        }
+        
+        .word-label {
+            position: absolute;
             padding: 4px 8px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.85);
             border-radius: 4px;
-            font-weight: 700;
+            font-size: 10px;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 50;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .tooltip {
             position: absolute;
-            padding: 10px 14px;
-            background: rgba(10, 10, 15, 0.95);
+            padding: 12px 16px;
+            background: rgba(10, 10, 15, 0.98);
             border: 1px solid #6366f1;
-            border-radius: 8px;
+            border-radius: 10px;
             pointer-events: none;
             z-index: 200;
             display: none;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
         }
         .tooltip.active { display: block; }
         .tooltip-word {
             font-family: 'Syne', sans-serif;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 16px;
+            margin-bottom: 4px;
         }
         .tooltip-cluster {
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 4px;
+        }
+        .tooltip-hint {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 8px;
         }
         
         .word-panel {
             position: absolute;
-            top: 50%;
+            top: 80px;
             left: 32px;
-            transform: translateY(-50%);
-            width: 280px;
+            width: 260px;
             padding: 20px;
-            background: rgba(10, 10, 15, 0.95);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: 16px;
+            background: rgba(10, 10, 15, 0.98);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            border-radius: 12px;
             z-index: 100;
             display: none;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
         }
         .word-panel.active { display: block; }
         .panel-close {
@@ -221,12 +250,13 @@
             border: none;
             color: #fff;
             cursor: pointer;
+            font-size: 14px;
         }
         .panel-close:hover { background: rgba(255, 255, 255, 0.2); }
         .panel-word {
             font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 4px;
         }
         .panel-cluster {
@@ -236,29 +266,30 @@
             margin-bottom: 16px;
         }
         .panel-section {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            margin-top: 12px;
         }
-        .neighbors { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+        .neighbors { display: flex; flex-wrap: wrap; gap: 5px; }
         .neighbor-tag {
-            padding: 5px 10px;
+            padding: 4px 8px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            font-size: 11px;
+            border-radius: 4px;
+            font-size: 10px;
             cursor: pointer;
         }
         .neighbor-tag:hover {
-            background: rgba(99, 102, 241, 0.2);
+            background: rgba(99, 102, 241, 0.3);
             border-color: #6366f1;
         }
         .embedding-grid {
             display: grid;
             grid-template-columns: repeat(16, 1fr);
-            gap: 2px;
+            gap: 1px;
         }
         .embedding-cell { aspect-ratio: 1; border-radius: 1px; }
         
@@ -307,6 +338,7 @@
     </div>
     
     <div id="canvas-container"></div>
+    <div id="labels-container"></div>
     
     <div class="header">
         <div class="logo">Embedding<span>Explorer</span></div>
@@ -320,10 +352,10 @@
     <div class="info-panel">
         <h1 class="info-title">Word Embedding Space</h1>
         <p class="info-description">
-            Explore 3D landscape of word meanings. Each point is a word positioned by semantic relationships.
+            Each sphere is a word. Similar meanings cluster together. Drag to rotate, scroll to zoom, click to explore.
         </p>
         <div class="stats">
-            <div><div class="stat-value" id="word-count">160</div><div class="stat-label">Words</div></div>
+            <div><div class="stat-value">160</div><div class="stat-label">Words</div></div>
             <div><div class="stat-value">8</div><div class="stat-label">Clusters</div></div>
             <div><div class="stat-value">100</div><div class="stat-label">Dims</div></div>
         </div>
@@ -331,15 +363,15 @@
     
     <div class="legend" id="legend"></div>
     
-    <div class="instructions">
-        <div class="instruction"><span class="instruction-key">Drag</span><span>Rotate</span></div>
-        <div class="instruction"><span class="instruction-key">Scroll</span><span>Zoom</span></div>
-        <div class="instruction"><span class="instruction-key">Click</span><span>Select</span></div>
+    <div class="controls">
+        <button class="control-btn" id="btn-reset">Reset View</button>
+        <button class="control-btn" id="btn-labels">Show Labels</button>
     </div>
     
     <div class="tooltip" id="tooltip">
         <div class="tooltip-word" id="tooltip-word"></div>
         <div class="tooltip-cluster" id="tooltip-cluster"></div>
+        <div class="tooltip-hint">Click to explore</div>
     </div>
     
     <div class="word-panel" id="word-panel">
@@ -348,7 +380,7 @@
         <div class="panel-cluster" id="panel-cluster"></div>
         <div class="panel-section">Nearest Neighbors</div>
         <div class="neighbors" id="panel-neighbors"></div>
-        <div class="panel-section">Embedding (64 dims)</div>
+        <div class="panel-section">Embedding Vector</div>
         <div class="embedding-grid" id="embedding-grid"></div>
     </div>
 
@@ -378,9 +410,9 @@
     };
     
     const clusterCenters = {
-        royalty: [15, 12, 8], animals: [-12, -8, 15], technology: [8, 18, -10],
-        emotions: [-15, 5, -12], nature: [12, -15, 5], science: [-8, 15, 12],
-        food: [-18, -12, -8], sports: [18, -5, -15]
+        royalty: [12, 10, 6], animals: [-10, -6, 12], technology: [6, 14, -8],
+        emotions: [-12, 4, -10], nature: [10, -12, 4], science: [-6, 12, 10],
+        food: [-14, -10, -6], sports: [14, -4, -12]
     };
     
     // Generate embeddings
@@ -388,7 +420,7 @@
     Object.entries(wordsByCluster).forEach(([clusterId, words]) => {
         const center = clusterCenters[clusterId];
         words.forEach(word => {
-            const r = 4 * Math.cbrt(Math.random());
+            const r = 3.5 * Math.cbrt(Math.random());
             const theta = Math.random() * Math.PI * 2;
             const phi = Math.acos(2 * Math.random() - 1);
             embeddings.push({
@@ -406,13 +438,14 @@
     
     // THREE.JS
     let scene, camera, renderer, raycaster, mouse;
-    let points = [], rotY = 0, rotX = 0, zoom = 50;
+    let points = [], rotY = 0.3, rotX = 0.2, zoom = 45;
     let isDragging = false, prevMouse = { x: 0, y: 0 };
+    let showLabels = false;
+    let selectedWord = null;
     
     function init() {
         scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
-        camera.position.set(0, 0, zoom);
+        camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 1000);
         
         renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(innerWidth, innerHeight);
@@ -423,28 +456,30 @@
         mouse = new THREE.Vector2();
         
         // Lights
-        scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-        const light = new THREE.PointLight(0xffffff, 1);
-        light.position.set(20, 20, 20);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+        const light = new THREE.PointLight(0xffffff, 0.8);
+        light.position.set(30, 30, 30);
         scene.add(light);
         
         // Stars
         const starsGeo = new THREE.BufferGeometry();
         const starsPos = [];
-        for (let i = 0; i < 2000; i++) {
-            starsPos.push((Math.random() - 0.5) * 200, (Math.random() - 0.5) * 200, (Math.random() - 0.5) * 200);
+        for (let i = 0; i < 1500; i++) {
+            starsPos.push((Math.random() - 0.5) * 300, (Math.random() - 0.5) * 300, (Math.random() - 0.5) * 300);
         }
         starsGeo.setAttribute('position', new THREE.Float32BufferAttribute(starsPos, 3));
-        scene.add(new THREE.Points(starsGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.3, transparent: true, opacity: 0.5 })));
+        scene.add(new THREE.Points(starsGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.4, transparent: true, opacity: 0.4 })));
         
         // Word points
         embeddings.forEach((emb, i) => {
             const cluster = clusters.find(c => c.id === emb.cluster);
-            const geo = new THREE.SphereGeometry(0.35, 12, 12);
+            const geo = new THREE.SphereGeometry(0.4, 16, 16);
             const mat = new THREE.MeshStandardMaterial({
                 color: cluster.color,
                 emissive: cluster.color,
-                emissiveIntensity: 0.4
+                emissiveIntensity: 0.5,
+                metalness: 0.3,
+                roughness: 0.7
             });
             const mesh = new THREE.Mesh(geo, mat);
             mesh.position.set(...emb.position);
@@ -454,15 +489,26 @@
         });
         
         // Events
-        renderer.domElement.addEventListener('mousedown', e => { isDragging = true; prevMouse = { x: e.clientX, y: e.clientY }; });
+        renderer.domElement.addEventListener('mousedown', e => { 
+            isDragging = true; 
+            prevMouse = { x: e.clientX, y: e.clientY }; 
+        });
         renderer.domElement.addEventListener('mouseup', () => isDragging = false);
+        renderer.domElement.addEventListener('mouseleave', () => isDragging = false);
         renderer.domElement.addEventListener('mousemove', onMove);
-        renderer.domElement.addEventListener('wheel', e => { zoom = Math.max(15, Math.min(80, zoom + e.deltaY * 0.05)); });
+        renderer.domElement.addEventListener('wheel', e => { 
+            e.preventDefault();
+            zoom = Math.max(20, Math.min(80, zoom + e.deltaY * 0.03)); 
+        }, { passive: false });
         renderer.domElement.addEventListener('click', onClick);
-        window.addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+        window.addEventListener('resize', () => { 
+            camera.aspect = innerWidth / innerHeight; 
+            camera.updateProjectionMatrix(); 
+            renderer.setSize(innerWidth, innerHeight); 
+        });
         
         setupUI();
-        setTimeout(() => document.getElementById('loading').classList.add('hidden'), 1000);
+        setTimeout(() => document.getElementById('loading').classList.add('hidden'), 800);
         animate();
     }
     
@@ -473,7 +519,7 @@
         if (isDragging) {
             rotY += (e.clientX - prevMouse.x) * 0.005;
             rotX += (e.clientY - prevMouse.y) * 0.005;
-            rotX = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, rotX));
+            rotX = Math.max(-1.2, Math.min(1.2, rotX));
             prevMouse = { x: e.clientX, y: e.clientY };
         }
         
@@ -482,36 +528,51 @@
         const hits = raycaster.intersectObjects(points);
         const tooltip = document.getElementById('tooltip');
         
+        // Reset all point sizes
+        points.forEach(p => p.scale.setScalar(1));
+        
         if (hits.length > 0) {
-            const data = hits[0].object.userData;
+            const hit = hits[0];
+            const data = hit.object.userData;
             const cluster = clusters.find(c => c.id === data.cluster);
+            
+            // Enlarge hovered point
+            hit.object.scale.setScalar(1.5);
+            
             document.getElementById('tooltip-word').textContent = data.word;
             document.getElementById('tooltip-cluster').textContent = cluster.name;
             document.getElementById('tooltip-cluster').style.color = cluster.color;
-            tooltip.style.left = e.clientX + 15 + 'px';
-            tooltip.style.top = e.clientY + 15 + 'px';
+            tooltip.style.left = (e.clientX + 20) + 'px';
+            tooltip.style.top = (e.clientY - 10) + 'px';
             tooltip.classList.add('active');
             document.body.style.cursor = 'pointer';
         } else {
             tooltip.classList.remove('active');
-            document.body.style.cursor = 'default';
+            document.body.style.cursor = 'grab';
         }
+        
+        if (isDragging) document.body.style.cursor = 'grabbing';
     }
     
     function onClick(e) {
         raycaster.setFromCamera(mouse, camera);
         const hits = raycaster.intersectObjects(points);
-        if (hits.length > 0) showWordPanel(hits[0].object.userData);
+        if (hits.length > 0) {
+            showWordPanel(hits[0].object.userData);
+        }
     }
     
     function showWordPanel(data) {
+        selectedWord = data.word;
         const cluster = clusters.find(c => c.id === data.cluster);
         document.getElementById('panel-word').textContent = data.word;
         document.getElementById('panel-cluster').textContent = cluster.name;
         document.getElementById('panel-cluster').style.color = cluster.color;
         
         const neighborsEl = document.getElementById('panel-neighbors');
-        neighborsEl.innerHTML = data.neighbors.map(n => `<div class="neighbor-tag" onclick="selectWord('${n}')">${n}</div>`).join('');
+        neighborsEl.innerHTML = data.neighbors.map(n => 
+            `<div class="neighbor-tag" onclick="selectWord('${n}')">${n}</div>`
+        ).join('');
         
         const gridEl = document.getElementById('embedding-grid');
         gridEl.innerHTML = data.embedding.slice(0, 64).map(v => 
@@ -519,6 +580,13 @@
         ).join('');
         
         document.getElementById('word-panel').classList.add('active');
+        
+        // Highlight selected point
+        points.forEach(p => {
+            if (p.userData.word === data.word) {
+                p.scale.setScalar(2);
+            }
+        });
     }
     
     function selectWord(word) {
@@ -533,12 +601,7 @@
             const div = document.createElement('div');
             div.className = 'legend-item';
             div.innerHTML = `<div class="legend-dot" style="background:${c.color}"></div><span class="legend-label">${c.name}</span>`;
-            div.onclick = () => {
-                const center = clusterCenters[c.id];
-                rotY = Math.atan2(center[0], center[2]);
-                rotX = Math.atan2(center[1], Math.sqrt(center[0]**2 + center[2]**2)) * 0.5;
-                zoom = 25;
-            };
+            div.onclick = () => focusCluster(c.id);
             legend.appendChild(div);
         });
         
@@ -560,20 +623,81 @@
         };
         
         // Close panel
-        document.getElementById('panel-close').onclick = () => document.getElementById('word-panel').classList.remove('active');
+        document.getElementById('panel-close').onclick = () => {
+            document.getElementById('word-panel').classList.remove('active');
+            selectedWord = null;
+        };
+        
+        // Reset view
+        document.getElementById('btn-reset').onclick = () => {
+            rotX = 0.2;
+            rotY = 0.3;
+            zoom = 45;
+            document.getElementById('word-panel').classList.remove('active');
+            selectedWord = null;
+        };
+        
+        // Toggle labels
+        document.getElementById('btn-labels').onclick = function() {
+            showLabels = !showLabels;
+            this.classList.toggle('active', showLabels);
+            this.textContent = showLabels ? 'Hide Labels' : 'Show Labels';
+        };
+    }
+    
+    function focusCluster(clusterId) {
+        const center = clusterCenters[clusterId];
+        // Calculate angle to look at cluster
+        rotY = Math.atan2(center[0], center[2]);
+        rotX = Math.atan2(center[1], Math.sqrt(center[0]**2 + center[2]**2)) * 0.3;
+        zoom = 30;
+        
+        // Highlight legend
+        document.querySelectorAll('.legend-item').forEach((el, i) => {
+            el.classList.toggle('active', clusters[i].id === clusterId);
+        });
+    }
+    
+    function updateLabels() {
+        const container = document.getElementById('labels-container');
+        container.innerHTML = '';
+        
+        if (!showLabels) return;
+        
+        points.forEach(point => {
+            const pos = point.position.clone();
+            pos.project(camera);
+            
+            // Check if in front of camera
+            if (pos.z > 1) return;
+            
+            const x = (pos.x * 0.5 + 0.5) * innerWidth;
+            const y = (-pos.y * 0.5 + 0.5) * innerHeight;
+            
+            const cluster = clusters.find(c => c.id === point.userData.cluster);
+            
+            const label = document.createElement('div');
+            label.className = 'word-label';
+            label.textContent = point.userData.word;
+            label.style.left = x + 'px';
+            label.style.top = y + 'px';
+            label.style.borderColor = cluster.color;
+            label.style.transform = 'translate(-50%, -150%)';
+            container.appendChild(label);
+        });
     }
     
     function animate() {
         requestAnimationFrame(animate);
         
-        // Auto rotate slowly when not dragging
-        if (!isDragging) rotY += 0.001;
-        
-        // Update camera
+        // Update camera position (NO auto-rotation)
         camera.position.x = zoom * Math.sin(rotY) * Math.cos(rotX);
         camera.position.y = zoom * Math.sin(rotX);
         camera.position.z = zoom * Math.cos(rotY) * Math.cos(rotX);
         camera.lookAt(0, 0, 0);
+        
+        // Update labels if enabled
+        if (showLabels) updateLabels();
         
         renderer.render(scene, camera);
     }
